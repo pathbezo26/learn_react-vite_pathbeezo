@@ -1,0 +1,93 @@
+.todo-container {
+    width: 600px;
+    margin: 50px auto;
+    padding: 24px;
+    background: #ffffff;
+    border-radius: 16px;
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+    font-family: sans-serif;
+    color: #333;
+}
+
+.todo-title {
+    text-align: center;
+    color: rgb(96, 239, 239);
+    font-size: 35px;
+    font-weight: bold;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+/* Flexbox để input và button nằm cùng hàng */
+.todo-container>div:nth-child(2) {
+    display: flex;
+    gap: 8px;
+    margin-bottom: 20px;
+}
+
+input {
+    flex: 1;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    outline: none;
+}
+
+button {
+    padding: 10px 16px;
+    background: #007aff;
+    /* Màu xanh Apple hiện đại */
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: 600;
+}
+
+button:hover {
+    background: #0056b3;
+}
+
+/* Item trong danh sách */
+.todo-container>div:last-child>div {
+    padding: 12px;
+    background: #f8f9fa;
+    border-radius: 8px;
+    margin-bottom: 8px;
+}
+
+.todo-image {
+    text-align: center;
+    margin-top: 15px
+}
+
+.logo {
+    height: 6em;
+    padding: 1.5em;
+    will-change: filter;
+    transition: filter 300ms;
+}
+
+.logo:hover {
+    filter: drop-shadow(0 0 2em #646cffaa);
+}
+
+.logo.react:hover {
+    filter: drop-shadow(0 0 2em #61dafbaa);
+}
+
+@keyframes logo-spin {
+    from {
+        transform: rotate(0deg);
+    }
+
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+    a:nth-of-type(2) .logo {
+        animation: logo-spin infinite 20s linear;
+    }
+}
