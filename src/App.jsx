@@ -23,6 +23,14 @@ function App() {
     //todoList.push(newTodo)
     //setTodoList(todoList)
   }
+
+  const deleteTodo = (id) => {
+    alert("Do you delete todo " + id + "?")
+    const listTodoNew = todoList.filter((todo, index) => todo.id !== id)
+    setTodoList(listTodoNew)
+  }
+
+
   return (
     <div className="todo-container">
       <div className="todo-title">My Todo</div>
@@ -34,11 +42,13 @@ function App() {
       {todoList.length > 0 ?
         <TodoData
           todoList={todoList}
+          deleteTodo={deleteTodo}
         />
         :
         <div divclassName='todo-image'>
           <img src={reactLogo} className="logo" />
-        </div>}
+        </div>
+      }
     </div >
   )
 }
