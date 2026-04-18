@@ -7,8 +7,7 @@ const TodoNew = (props) => {
     //addNewTodo("Beezo")
     const [valueInput, setValueInput] = useState("Bin")
     const handleClick = () => {
-        alert("click add new todo is done")
-        console.log(">>check input: ", valueInput)
+        addNewTodo(valueInput)
     }
     const handleOnChange = (text) => {
 

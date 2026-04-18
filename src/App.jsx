@@ -12,15 +12,25 @@ function App() {
     address: "DeGi, GiaLai"
   }
 
-  const addNewTodo = (name) => {
-    alert(`func add new todo is called by ${name}`)
-  }
-
   const [todoList, setTodoList] = useState([
     { id: 1, name: "Learning piano" },
     { id: 2, name: "Jugging" }
   ])
+  const randomIntFromInterval = (min, max) => { // min and max included 
+    return Math.floor(Math.random() * (max - min + 1) + min);
+  }
 
+  const addNewTodo = (name) => {
+    const newTodo = {
+      id: randomIntFromInterval(1, 999999),
+      name: name
+    }
+
+    setTodoList([...todoList, newTodo])
+    //tránh chỉnh sửa trực tiếp state
+    //todoList.push(newTodo)
+    //setTodoList(todoList)
+  }
   return (
     <div className="todo-container">
 
