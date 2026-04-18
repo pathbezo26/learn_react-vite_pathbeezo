@@ -2,6 +2,7 @@ import './components/todo/todo.css'
 import TodoData from './components/todo/TodoData'
 import TodoNew from './components/todo/TodoNew'
 import reactLogo from './assets/react.svg'
+import { useState } from 'react'
 
 
 function App() {
@@ -15,6 +16,11 @@ function App() {
     alert(`func add new todo is called by ${name}`)
   }
 
+  const [todoList, setTodoList] = useState([
+    { id: 1, name: "Learning piano" },
+    { id: 2, name: "Jugging" }
+  ])
+
   return (
     <div className="todo-container">
 
@@ -27,7 +33,7 @@ function App() {
       <TodoData
         hobby={hobby}
         inf={inf}
-
+        todoList={todoList}
       />
 
       <div className='todo-image'>
