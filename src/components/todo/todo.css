@@ -48,12 +48,9 @@ button:hover {
     background: #0056b3;
 }
 
-/* Item trong danh sách */
-.todo-container>div:last-child>div {
-    padding: 12px;
-    background: #f8f9fa;
-    border-radius: 8px;
-    margin-bottom: 8px;
+.todo-container>div:last-child {
+    margin-top: 10px;
+    /* Tạo khoảng cách với ô nhập liệu ở trên */
 }
 
 .todo-image {
@@ -90,4 +87,30 @@ button:hover {
     a:nth-of-type(2) .logo {
         animation: logo-spin infinite 20s linear;
     }
+}
+
+.todo-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    /* Thêm cái này để căn giữa chữ và nút theo chiều dọc */
+    padding: 10px;
+    /* Tạo khoảng trống bên trong mỗi dòng */
+    margin-bottom: 12px;
+    /* ĐÂY LÀ CHỖ CHỈNH CÁCH DÒNG: tăng số này nếu muốn thưa hơn */
+    background: #f8f9fa;
+    /* Màu nền nhẹ cho mỗi mục */
+    border-radius: 8px;
+    /* Bo góc cho đẹp */
+}
+
+.todo-item button {
+    padding: 6px 12px;
+    font-size: 14px;
+    background: #ff4d4f;
+    /* Đổi sang màu đỏ cho đúng tính chất nút Xóa */
+}
+
+.todo-item button:hover {
+    background: #d9363e;
 }
