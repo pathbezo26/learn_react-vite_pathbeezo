@@ -3,4 +3,4 @@ const UserPage = () => {
         <div>Users</div>
     )
 }
-export default UserPage
+export default UserPage;
