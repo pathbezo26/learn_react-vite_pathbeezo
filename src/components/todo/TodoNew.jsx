@@ -9,16 +9,13 @@ const TodoNew = (props) => {
         setValueInput("")
     }
 
-    const handleOnChange = (text) => {
-        setValueInput(text)
-    }
 
     return (
         <div className='TodoNew'>
             <input
                 type="text"
                 value={valueInput}
-                onChange={(event) => handleOnChange(event.target.value)}
+                onChange={(event) => setValueInput(event.target.value)}
             ></input>
             <button
                 style={{ cursor: "pointer" }}
