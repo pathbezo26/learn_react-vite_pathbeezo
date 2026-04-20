@@ -1,12 +1,24 @@
 import { Input } from "antd"
 import { Button, Flex } from 'antd';
+import axios from "axios";
 import { useState } from "react";
 const UserForm = () => {
     const [fullName, setFullName] = useState("")
     const [email, setEmail] = useState("")
     const [password, setPassword] = useState("")
     const [phone, setPhone] = useState("")
-    console.log(">>> check form: ", fullName, email, password, phone)
+
+
+    const handleClickButton = () => {
+        const URL_USER = "http://localhost:8080/api/v1/user"
+        const data = {
+            fullName: fullName,
+            email: email,
+            password: password,
+            phone: phone
+        }
+        axios.post(URL_USER, data)
+    }
     return (
         <div className="user-form" style={{ margin: "20px 0" }}>
             <div style={{ gap: "100px", flexDirection: "collumn" }}>
@@ -39,7 +51,10 @@ const UserForm = () => {
                     />
                 </div>
                 <div>
-                    <Button type="primary">Create User Button</Button>
+                    <Button
+                        type="primary"
+                        onClick={handleClickButton}
+                    >Create User Button</Button>
                 </div>
             </div>
         </div>
