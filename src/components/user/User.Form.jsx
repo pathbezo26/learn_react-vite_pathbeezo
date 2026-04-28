@@ -6,7 +6,8 @@ import { useState } from "react";
 import { createUserAPI } from "../../api/api.service";
 import UserTable from "./UserTable";
 
-const UserForm = () => {
+const UserForm = (props) => {
+    const { loadUser } = props
     const [fullName, setFullName] = useState("")
     const [email, setEmail] = useState("")
     const [password, setPassword] = useState("")
@@ -26,7 +27,8 @@ const UserForm = () => {
                     message: "Create user",
                     description: "Tạo user thành công!"
                 })
-                setIsModalOpen(false)
+                resetAndCloseModal();
+                await loadUser();
             }
         } catch (error) {
             notification.error({
@@ -34,6 +36,15 @@ const UserForm = () => {
                 description: JSON.stringify(error.response?.data?.message) || "Lỗi khi tạo user"
             })
         }
+
+    }
+
+    const resetAndCloseModal = () => {
+        setIsModalOpen(false);
+        setEmail("");
+        setFullName("");
+        setPassword("");
+        setPhone("");
     }
     return (
         <div className="user-form" style={{ margin: "10px 0" }}>
@@ -42,7 +53,7 @@ const UserForm = () => {
                 title="Basic Modal"
                 open={isModalOpen}
                 onOk={handleCreateButton}
-                onCancel={() => { setIsModalOpen(false) }}
+                onCancel={() => { resetAndCloseModal() }}
                 maskClosable={false}
                 okText={"Create"}
             >
